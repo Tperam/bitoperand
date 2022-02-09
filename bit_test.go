@@ -14,7 +14,7 @@ import (
 )
 
 func TestB(t *testing.T) {
-	b := bitoperand.NewBits(0)
+	b := bitoperand.NewBit(0)
 	b.Set(9999)
 	t.Log(9999, b.Get(9999))
 	b.Set(34)
