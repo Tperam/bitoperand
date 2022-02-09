@@ -1,7 +1,7 @@
 /*
  * @Author: Tperam
  * @Date: 2022-02-09 01:14:39
- * @LastEditTime: 2022-02-09 22:30:48
+ * @LastEditTime: 2022-02-09 22:40:10
  * @LastEditors: Tperam
  * @Description:
  * @FilePath: \bitoperand\bitgroup.go
@@ -11,7 +11,7 @@ package bitoperand
 type BitGroup struct {
 	bitMeaning map[string]uint
 	bitTable   map[string]int
-	bits       []*Bit
+	bits       []Bit
 	bitSize    uint
 }
 
@@ -20,7 +20,7 @@ func NewBitGroup(size uint) *BitGroup {
 	return &BitGroup{
 		bitMeaning: make(map[string]uint, size/64+1),
 		bitTable:   make(map[string]int),
-		bits:       make([]*Bit, 0),
+		bits:       make([]Bit, 0),
 		bitSize:    size,
 	}
 }
@@ -30,7 +30,7 @@ func (bg *BitGroup) SetBitMeaning(key string, index uint) {
 
 func (bg *BitGroup) SetBitTable(tablename string) {
 	bg.bitTable[tablename] = len(bg.bits)
-	bg.bits = append(bg.bits, NewBit(bg.bitSize))
+	bg.bits = append(bg.bits, NewBaseBit(bg.bitSize))
 }
 
 func (bg *BitGroup) SetBit(tablename, key string) {

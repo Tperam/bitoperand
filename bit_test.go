@@ -1,7 +1,7 @@
 /*
  * @Author: Tperam
  * @Date: 2022-02-09 01:27:42
- * @LastEditTime: 2022-02-09 01:29:50
+ * @LastEditTime: 2022-02-09 22:41:08
  * @LastEditors: Tperam
  * @Description:
  * @FilePath: \bitoperand\bit_test.go
@@ -14,7 +14,7 @@ import (
 )
 
 func TestB(t *testing.T) {
-	b := bitoperand.NewBit(0)
+	b := bitoperand.NewBaseBit(0)
 	b.Set(9999)
 	t.Log(9999, b.Get(9999))
 	b.Set(34)
