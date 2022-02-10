@@ -1,7 +1,7 @@
 /*
  * @Author: Tperam
  * @Date: 2022-02-09 22:42:00
- * @LastEditTime: 2022-02-09 22:46:31
+ * @LastEditTime: 2022-02-10 23:01:17
  * @LastEditors: Tperam
  * @Description:
  * @FilePath: \bitoperand\lock_bit.go
@@ -11,28 +11,25 @@ package bitoperand
 import "sync"
 
 type LockBit struct {
-	lock sync.RWMutex
-	bit  Bit
+	bits  []int64
+	locks []sync.RWMutex
 }
 
-// 带锁的bit
-// proxy 设计模式
-func NewLockBit(b Bit) *LockBit {
+func NewLockBit(size uint) *LockBit {
+	if size == 0 {
+		size = DefaultSize
+	}
 	return &LockBit{
-		bit:  b,
-		lock: sync.RWMutex{},
+		bits:  make([]int64, size/64+1),
+		locks: make([]sync.RWMutex, size/64+1),
 	}
 }
 
-func (b *LockBit) Set(bit uint) {
-	b.lock.Lock()
-	b.bit.Set(bit)
-	b.lock.Unlock()
+func (b *LockBit) Set(bits uint) {
+	b.locks[bits/64].Lock()
+	b.bits[bits/64] ^= (1 << (bits & 63))
+	b.locks[bits/64].Unlock()
 }
-
-func (b *LockBit) Get(bit uint) bool {
-	b.lock.RLock()
-	flag := b.bit.Get(bit)
-	b.lock.RUnlock()
-	return flag
+func (b *LockBit) Get(bits uint) bool {
+	return b.bits[bits/64]&(1<<(bits&63)) == (1 << (bits & 63))
 }

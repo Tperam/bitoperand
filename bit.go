@@ -1,7 +1,7 @@
 /*
  * @Author: Tperam
  * @Date: 2022-02-08 23:57:35
- * @LastEditTime: 2022-02-09 22:39:27
+ * @LastEditTime: 2022-02-10 22:13:46
  * @LastEditors: Tperam
  * @Description:
  * @FilePath: \bitoperand\bit.go
@@ -14,3 +14,5 @@ type Bit interface {
 	// 返回该位上值
 	Get(bit uint) bool
 }
+
+const DefaultSize = 65536

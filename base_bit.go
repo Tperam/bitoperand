@@ -1,7 +1,7 @@
 /*
  * @Author: Tperam
  * @Date: 2022-02-09 22:41:26
- * @LastEditTime: 2022-02-09 22:41:38
+ * @LastEditTime: 2022-02-10 22:47:26
  * @LastEditors: Tperam
  * @Description:
  * @FilePath: \bitoperand\base_bit.go
@@ -11,8 +11,6 @@ package bitoperand
 type BaseBit struct {
 	bit []int64
 }
-
-const DefaultSize = 65536
 
 func NewBaseBit(size uint) *BaseBit {
 	if size == 0 {
