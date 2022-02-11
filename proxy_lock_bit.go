@@ -1,7 +1,7 @@
 /*
  * @Author: Tperam
  * @Date: 2022-02-09 22:42:00
- * @LastEditTime: 2022-02-10 22:58:03
+ * @LastEditTime: 2022-02-11 22:26:12
  * @LastEditors: Tperam
  * @Description:
  * @FilePath: \bitoperand\proxy_lock_bit.go
@@ -35,4 +35,7 @@ func (b *ProxyLockBit) Get(bit uint) bool {
 	flag := b.bit.Get(bit)
 	b.lock.RUnlock()
 	return flag
+}
+func (b *ProxyLockBit) GetBackingSliceInt() []int64 {
+	return b.bit.GetBackingSliceInt()
 }

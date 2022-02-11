@@ -1,7 +1,7 @@
 /*
  * @Author: Tperam
  * @Date: 2022-02-09 22:42:00
- * @LastEditTime: 2022-02-10 23:01:17
+ * @LastEditTime: 2022-02-11 22:22:36
  * @LastEditors: Tperam
  * @Description:
  * @FilePath: \bitoperand\lock_bit.go
@@ -32,4 +32,8 @@ func (b *LockBit) Set(bits uint) {
 }
 func (b *LockBit) Get(bits uint) bool {
 	return b.bits[bits/64]&(1<<(bits&63)) == (1 << (bits & 63))
+}
+
+func (b *LockBit) GetBackingSliceInt() []int64 {
+	return b.bits
 }

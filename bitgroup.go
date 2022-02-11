@@ -1,7 +1,7 @@
 /*
  * @Author: Tperam
  * @Date: 2022-02-09 01:14:39
- * @LastEditTime: 2022-02-09 22:40:10
+ * @LastEditTime: 2022-02-11 22:22:15
  * @LastEditors: Tperam
  * @Description:
  * @FilePath: \bitoperand\bitgroup.go

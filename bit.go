@@ -1,7 +1,7 @@
 /*
  * @Author: Tperam
  * @Date: 2022-02-08 23:57:35
- * @LastEditTime: 2022-02-10 22:13:46
+ * @LastEditTime: 2022-02-11 22:22:05
  * @LastEditors: Tperam
  * @Description:
  * @FilePath: \bitoperand\bit.go
@@ -13,6 +13,8 @@ type Bit interface {
 	Set(bit uint)
 	// 返回该位上值
 	Get(bit uint) bool
+
+	GetBackingSliceInt() []int64
 }
 
 const DefaultSize = 65536

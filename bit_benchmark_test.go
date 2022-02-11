@@ -1,7 +1,7 @@
 /*
  * @Author: Tperam
  * @Date: 2022-02-10 22:10:02
- * @LastEditTime: 2022-02-10 22:59:46
+ * @LastEditTime: 2022-02-11 23:08:21
  * @LastEditors: Tperam
  * @Description:
  * @FilePath: \bitoperand\bit_benchmark_test.go
@@ -65,3 +65,4 @@ func BenchmarkConCurrencyCASBitSet(b *testing.B) {
 	var bi bitoperand.Bit = bitoperand.NewCASBit(65536)
 	GoBitSet(bi, b.N, 16)
 }
+
